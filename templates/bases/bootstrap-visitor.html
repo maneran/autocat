@@ -1,0 +1,243 @@
+{% extends "bases/bootstrap-jquery.html" %}
+
+{% load staticfiles %}
+
+{% block nav %}
+
+  <!-- GLOBAL HEADER -->
+  <nav id="header-main" class="header_main container">
+    <div id="navbar" class="navbar navbar-rt" role="navigation">
+        <div class="navbar-header pull-right hidden-xs">
+            <div class="header_links">
+                <a id="header-whats-the-tomatometer" href="/about#whatisthetomatometer">What is HotPotatoes?</a>
+                <a id="header-top-bar-critics" href="/critics/">Reviews</a>
+                <div id="headerUserSection" class="js-header-auth__user-section" style="display: inline-block;">
+                      <!--
+                    <a id="header-top-bar-signup" data-toggle="modal" data-target="#signup" class="signupLink login ctHidden">SIGN UP</a> &#124;<a id="header-top-bar-login" data-toggle="modal" data-target="#login" class="loginLink login ctHidden">LOG IN</a>
+                    -->
+                    <a href="#" class="waves-effect waves-light btn-small black lighten-2" rule="button">Signin</a>
+                </div>
+            </div>
+        </div>
+        <div id="header_brand_column" class="col-sm-13 col-full-xs">
+          <div class="hidden-xs desktopNav">
+            <!-- Logo -->
+            <div id="navbar_brand" class="navbar-brand">
+                <a class="header-rt-logo" aria-label="header logo" href="/">
+                  <img id="original_rt_logo" src='{% static "images/rtlogo.9b892cff3fd.png" %}' alt="Hot Potatoes Logo" />
+                </a>
+            </div>
+            <!-- Search box -->
+            <div id="fullscreen-search-desktop-root">
+              <form action="" method="get">
+                <div class="FullscreenSearch FullscreenSearch--desktop">
+                  <div class="navbar-searchbox main">
+                    <div class="input-group">
+                      <select name="name" theme="" data-placeholder="Search Movies ,TV, more ..." 
+                          data-minimum-input-length="2" maxlength="120" id="id_name" 
+                          data-autocomplete-light-language="en" 
+                          data-autocomplete-light-url="/country-autocomplete/" 
+                          data-autocomplete-light-function="select2">
+                      </select>
+                    </div>
+                    <!--
+                    <div id="fullscreen-search-results-container" class="FullscreenSearch__results-container container">
+                        
+                    </div>
+                    -->
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="mobileNav">
+            <div>
+              <a>
+                <button id="fullscreen-search-show-btn" data-toggle="modal" data-target="#fullscreen-search-root" class="pull-right navbar-button searchButton" aria-label="search button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </a>
+            </div>
+            <!-- LOGO -->
+            <div class="navbar-brand">
+              <a class="header-rt-logo" aria-label="header logo" href="/"> <img src='{% static "images/rtlogo.9b892cff3fd.png" %}' alt="Hot Potatoes Logo" /></a>
+            </div>
+            <!--MOBILE BOTTOM NAVIGATION BAR-->
+            <div id="mobile-nav">
+              <div class="mob-nav-bottom clearfix">
+                <ul id="nav-list" class="nav-list">
+                  <li class="nav-item">
+                    <a href="#"  class="active" >
+                      <i class="fa fa-home fa-2x white"></i>
+                      <h3>
+                        <span class="label white">Home</span>
+                      </h3>    
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" >
+                      <i class="fa fa-film fa-2x"></i>
+                      <h3>
+                        <span class="label white">Top Movies</span>
+                      </h3> 
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" >
+                      <i class="fa fa-tv fa-2x"></i>
+                      <h3>
+                        <span class="label white">Top TV</span>
+                      </h3>
+                    </a>
+                  </li>         
+                  <li class="nav-item">
+                    <a href="#" >
+                      <i class="fa fa-sign-in-alt fa-2x"></i>
+                      <h3>
+                        <span class="label white">Sign In</span>
+                      </h3>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--MOBILE BOTTOM NAVIGATION BAR END-->
+          </div>
+        </div>
+        <div id="menu" class="navbar-nav col-sm-11 hidden-xs">
+            <ul class="list-inline">
+              <li class="menuHeader center dropdown noSpacing" id="movieHeaderMenu">
+                  <a id="movieMenu" role="button" class="h3 white" href="/browse/opening/">
+                    Movies &amp; TV
+                    <i class="fa fa-caret-down"></i>
+                  </a>
+                  <div class="dropdown-menu" role="menu" aria-labelledby="movieMenu">
+                      <div class="row-sameColumnHeight">
+                        <div class="col-xs-5 subnav">
+                          <div class="innerSubnav">
+                            <h2 class="title">Movies</h2>
+                            <ul class="list-unstyled" id="header-movies-in-theaters">
+                              <li>
+                                  <a class="unstyled articleLink" href="/browse/opening/">Latest Trailers</a>
+                              </li>
+                              <li>
+                                  <a class="unstyled articleLink" href="/browse/in-theaters/">Coming Soon</a>
+                              </li>
+                              <li>
+                                  <a class="unstyled articleLink" href="/browse/upcoming/">Top Rated Movies</a>
+                              </li>
+                              <li>
+                                  <a class="unstyled articleLink" href="//www.rottentomatoes.com/browse/box-office/">Most Popular Movies</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="col-xs-3 subnav">
+                          <div class="innerSubnav">
+                            <h2 class="title">TV</h2>
+                            <ul class="list-unstyled" id="header-movies-more">
+                                <li><a class="unstyled articleLink" href="/top/">Top Rated TV Shows</a></li>
+                                <li><a class="unstyled articleLink" href="/trailers/">Most Popular TV Shows</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="col-xs-11 subnav">
+                          <div class="innerSubnav">
+                            <h2 class="title">More</h2>
+                            <ul class="list-unstyled" id="header-movies-more">
+                                <li><a class="unstyled articleLink" href="/top/">Best Movies Of All Time</a></li>
+                                <li><a class="unstyled articleLink" href="/trailers/">Best Movies By Genre</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="menuHeader center dropdown noSpacing dropdown-toggle">
+                  <a id="tvMenu" class="h3" href="#">
+                  Events
+                  <i class="fa fa-caret-down"></i>
+                  </a>
+                  <div id="tvMenuDropdown" class="dropdown-menu" role="menu" aria-labelledby="tvMenu">
+                      <div class="row-sameColumnHeight">
+                          <div class="col-xs-5 subnav">
+                            <div class="innerSubnav" id="header-tv-col1">
+                              <h2 class="title">EVENTS</h2>
+                              <ul class="list-unstyled" id="header-movies-more">
+                                <li><a class="unstyled articleLink" href="/top/">All Festivals world wide</a></li>
+                                <li><a class="unstyled articleLink" href="/trailers/">Polls</a></li>
+                              </ul>
+                            </div>    
+                          </div>                
+                      </div>
+                  </div>
+              </li>
+              <li class="menuHeader center dropdown noSpacing" id="movieHeaderMenu">
+                <a id="movieMenu" role="button" class="h3 white" href="#">
+                  Community &amp; Reviews 
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-menu" role="menu" aria-labelledby="movieMenu">
+                  <div class="row-sameColumnHeight">
+                    <div class="col-xs-5 subnav">
+                      <div class="innerSubnav">
+                        <h2 class="title">Community</h2>
+                        <ul class="list-unstyled" id="header-movies-in-theaters">
+                          <li>
+                            <a class="unstyled articleLink" href="/browse/opening/">Born Today</a>
+                          </li>
+                          <li>
+                            <a class="unstyled articleLink" href="/browse/in-theaters/">In Memorial</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-xs-3 subnav">
+                      <div class="innerSubnav">
+                        <h2 class="title">Reviews</h2>
+                        <ul class="list-unstyled" id="header-movies-more">
+                          <li><a class="unstyled articleLink" href="/top/">Top Reviews</a></li>
+                          <li><a class="unstyled articleLink" href="/trailers/">All Reviews</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-xs-11 subnav">
+                      <div class="innerSubnav">
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="menuHeader center dropdown noSpacing" id="movieHeaderMenu">
+                <a id="movieMenu" role="button" class="h3 white" href="#">
+                  Watchlist
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-menu" role="menu" aria-labelledby="movieMenu">
+                  <div class="row-sameColumnHeight">
+                    <div class="col-xs-5 subnav">
+                      <div class="innerSubnav">
+                        <h2 class="title">Community</h2>
+                        <ul class="list-unstyled" id="header-movies-in-theaters">
+                          <li>
+                            <a class="unstyled articleLink" href="/browse/opening/">Recently Added</a>
+                          </li>
+                          <li>
+                            <a class="unstyled articleLink" href="/browse/in-theaters/">Add A Few Current Movies</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+    </div>
+    <!-- TRENDING BAR -->
+  <div class="trendingBar hidden-xs">   
+  </div>
+</nav>
+
+{% endblock %}
