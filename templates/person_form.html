@@ -1,0 +1,40 @@
+{# Don't forget that one ! #}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.css" integrity="sha256-Ju6812ufi1PkAvKVu7myA4uw5aYWyZoeL5GHNCn0AMk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css"  />
+<link href="vendor/select2/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href='{% static "autocomplete_light/select2.js" %}' />
+
+<div>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" />
+    </form>
+</div>
+
+   
+{% endblock %}
+
+{% block footer %}
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+<script src="vendor/select2/dist/js/select2.min.js"></script>
+<script src='{% static "autocomplete_light/autocomplete.init.js" %}'></script>
+<script src='{% static "autocomplete_light/select2.js" %}'></script>
+
+<script>
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+
+{{ form.media }}
+
+{% endblock %}
