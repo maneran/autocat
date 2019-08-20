@@ -1,12 +1,95 @@
-{# Don't forget that one ! #}
-{% load static %}
+{% extends "bases/bootstrap-visitor.html" %}
+{% load staticfiles %}
 
 {% block content %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.css" integrity="sha256-Ju6812ufi1PkAvKVu7myA4uw5aYWyZoeL5GHNCn0AMk=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css"  />
-<link href="vendor/select2/dist/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href='{% static "autocomplete_light/select2.js" %}' />
+
+<!--PAGE CONTENT-->
+
+<!--
+  <div id="main_container" class="container" style="width:1100px; background-color:yellow;" role="main">
+    <section class="home_body">
+        <div id="banner">
+            <div id="section" class="col-sm-12">
+                <div id="hedliners" class="caruusel slide" data-ride="carousel">
+
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+-->
+
+<!-- PAGE BODY -->
+<div id="main_container" class="container" role="main">  
+    <!-- salt=home-sticky-wicket-88 -->
+    <section class="home-body">
+        <div id="banner">
+            <section class="headline col-sm-12">
+                <div id="headliners" class="headline carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators hidden-xs">
+                
+                        <li data-target="#headliners" data-slide-to="0" class="active"></li>
+                    
+                        <li data-target="#headliners" data-slide-to="1" ></li>
+                    
+                        <li data-target="#headliners" data-slide-to="2" ></li>
+                    
+                        <li data-target="#headliners" data-slide-to="3" ></li>
+                    
+                        <li data-target="#headliners" data-slide-to="4" ></li>
+                    
+                        <li data-target="#headliners" data-slide-to="5" ></li>
+                    
+                        <li data-target="#headliners" data-slide-to="6" ></li>
+                    
+                        <li data-target="#headliners" data-slide-to="7" ></li>
+                    
+                    </ol>
+                    <div class="carousel-inner spotlight-item-wrap">
+                        <section id="" class="headlineItem item active">
+                            <aside class="sponsored-tag">
+                                <p class="sponsored-text">FEATURED</p>
+                            </aside>
+        
+                            <a class="unstyled homepage-carousel-image-link" href="https://editorial.rottentomatoes.com/article/the-20-most-daring-films-of-2019-so-far-you-probably-missed/" data-slide-index="0"  >
+        
+                                <div class="bannerPic js-lazyLoad home-slide" data-src="https://resizing.flixster.com/7oOw6h0GRfNaR34EdG-PzpUbBrY=/1100x610/v1.czsxMDI4MTA3MjtqOzE4MjA4OzEyMDA7NTUwOzMxMA" data-bg-image="true">
+                                </div>
+                                <div class="panel-rt bannerCaption subPanel">
+                                    <h3 class="panel-heading">The 20 Most Daring Films of 2019 You Probably Missed</h3>
+                                    <div class="panel-body">
+                                
+                                        <span class="title">These gems are some of the boldest work from around the world this year!</span>
+                                
+                                    </div>
+                                </div>
+                            </a>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 
 <div>
     <form action="" method="post">
@@ -16,25 +99,7 @@
     </form>
 </div>
 
+-->
    
-{% endblock %}
 
-{% block footer %}
-<!-- JQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"> </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
-<script src="vendor/select2/dist/js/select2.min.js"></script>
-<script src='{% static "autocomplete_light/autocomplete.init.js" %}'></script>
-<script src='{% static "autocomplete_light/select2.js" %}'></script>
 
-<script>
-    // In your Javascript (external .js resource or <script> tag)
-    $(document).ready(function() {
-        $('.js-example-basic-single').select2();
-    });
-</script>
-
-{{ form.media }}
-
-{% endblock %}

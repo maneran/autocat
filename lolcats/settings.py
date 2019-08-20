@@ -11,13 +11,26 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+# Static asset configuration
+STATIC_ROOT = 'staticfiles'
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'c1#^p1!*ruze(!8b@!l!+a9e4shxrvn*0pf_o(*$p2&t=3#bxj'
@@ -40,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'bootstrap4', # optional module for making bootstrap forms easier
     'autocat'
 ]
 
@@ -53,23 +67,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'lolcats.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
+ROOT_URLCONF = 'lolcats.urls'
 
 WSGI_APPLICATION = 'lolcats.wsgi.application'
 
@@ -131,10 +130,26 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
-#STATICFILES_DIRS = [STATIC_DIR, ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+# Authentication
+
+AUTHENTICATION_BACKENDS = (
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]

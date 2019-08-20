@@ -2,6 +2,7 @@ from dal import autocomplete
 
 from django import forms
 from .models import *
+from .widgets import AutocompleteWidget
 
 # from django.utils.html import format_html
 
@@ -12,6 +13,7 @@ from .models import *
 
 
 class CountryForm(forms.ModelForm):
+      
     class Meta:
         model = Country
         fields = ('__all__')
@@ -26,9 +28,12 @@ class CountryForm(forms.ModelForm):
                                         'data-minimum-input-length': 2,
                                         # 'data-html': True,
                                     },
-                                )
+                                ),
+            'name' : AutocompleteWidget()
         }
 
+        # class Media:
+        #     js = ('select2.js','forward.js','select2.full.js',)
 
 # class PersonForm(forms.ModelForm):
 #     class Meta:

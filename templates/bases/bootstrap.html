@@ -1,0 +1,122 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HotPotatoes</title>
+
+    <!--AUTOCOMPLETE CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.css" integrity="sha256-Ju6812ufi1PkAvKVu7myA4uw5aYWyZoeL5GHNCn0AMk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css"  />
+  
+    {% block head_css %}
+    <!--
+    <link rel="stylesheet" media="screen" href='{% static "css/materialize.css" %}' />
+    <link rel="stylesheet" media="screen" href='{% static "css/materialize.min.css" %}' />
+    <link rel="stylesheet" media="screen" href='{% static "css/main.css" %}' />
+    <link rel="stylesheet" media="screen" href='{% static "css/style.css" %}' />
+    -->
+    <!--FONT AWESOME CSS-->
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href='{% static "css/all.css" %}' />
+    <!--APP CSS-->
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href='{% static "css/global.css" %}' />
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href='{% static "css/home.css" %}' />
+    <!--AUTOCOMPLETE AWESOME CSS-->
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href='{% static "css/select2.min.css" %}' />
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href='{% static "css/select2.css" %}' />
+    
+    {% endblock %}
+
+  </head>
+  <body class="body">
+     
+    <script ASYNC src='{% static "js/launch.min.js" %}'></script>
+
+    <div class="body_main container">
+        
+      {% block nav %}{% endblock %}
+
+      {% block content %}{% endblock %}
+
+      {% block footer %}
+
+      <!--FOTTER-->
+      <footer id="foot" class="footer hidden-xs">
+        <div class="row">
+          <div class="col-xs-5 subnav">
+            <ul class="unstyled">
+              <li><a id="footer-help" href="#">Home</a></li>
+              <li><a id="footer-about" href="#">About Hot Potatoes</a></li>
+              <li><a id="footer-tomatometer" style="cursor: pointer;" href="#">How ranking being done?</a></li>
+              <li><a id="footer-jobs" href="#">Reviews</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-7 subnav">
+            <ul>
+              <li><a id="footer-critics" href="#">Contact Us</a></li>
+              <li><a id="footer-licensing" href="#">Account</a></li>
+              <li><a id="footer-advertise" href="#">Top Rated Movies</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="subtle" style="padding:10px">
+          Copyright &copy; HotPotatoes. All rights reserved. 
+          <span class="version">V3</span>
+          <a id="footer-privacy" href="#">Privacy Policy</a> |
+          <a id="footer-tos" href="#">Terms and Policies</a> |
+        </div>
+      </footer>
+
+
+      <!--MOBILE AUTOCOMPLETE SEARCH-->
+      <div id="fullscreen-search-root" style="display: none;">  
+        <form id="search-form" method="get">
+          <div class="FullscreenSearch FullscreenSearch--mobile">
+            <div>
+              <div class="FullscreenSearch__top-section">
+                <img role="presentation" class="FullscreenSearch__top-rt-logo" src='{% static "images/rtlogo.9b892cff3fd.png" %}' alt="Hot Potatoes Logo" />
+                <button id="fullscreen-search-close-btn" data-dismiss="modal" class="FullscreenSearch__close-btn" type="button">
+                  <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" style="fill: currentcolor; vertical-align: middle; width: 36px; height: 36px;">
+                    <g>
+                        <path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path>
+                    </g>
+                  </svg>
+                </button>
+                <div class="FullscreenSearch__top-section-container container">
+                  <div class="row">
+                    <div class="col-xs-24">
+                      <div class="FullscreenSearch__search-box">
+                        <select 
+                          id="fullscreen-search-mobile-term"
+                          class="FullscreenSearch__input"
+                          name="name" theme="" data-placeholder="Search Movies ,TV, more ..." 
+                          data-minimum-input-length="2" maxlength="120" id="id_name" 
+                          data-autocomplete-light-language="en" 
+                          data-autocomplete-light-url="/country-autocomplete/" 
+                          data-autocomplete-light-function="select2">
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      {% endblock %}
+
+      {% block tail_js %}
+      {% endblock %}
+
+    </div>
+ 
+  </body>
+</html>
